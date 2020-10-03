@@ -1,5 +1,5 @@
 module.exports = {
   publicPath: process.env.NODE_ENV === 'production'
-    ? '/maze/'
+    ? '/vue_svg_game/'
     : '/'
 }
