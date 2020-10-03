@@ -19,7 +19,7 @@ const state = {
   canonAngle: 30,
   started: false,
   kills: 0,
-  lives: 3,
+  lives: 5,
   flyingObjects: [],
   lastObjectCreatedAt: 0,
   cannonBalls: []
@@ -50,7 +50,7 @@ const mutations = {
     state.lives--
   },
   'RESET_LIVES'(state) {
-    state.lives = 3
+    state.lives = 5
   },
 
   'RESET_UFOS'(state) {
