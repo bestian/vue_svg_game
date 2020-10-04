@@ -59,7 +59,7 @@
 
   const viewBox = [window.innerWidth / -2, 100 - GAME_HEIGHT, window.innerWidth, GAME_HEIGHT]
   const HEART_START_Y = 35
-  const HEART_START_X = -180
+  const HEART_START_X = 30
   const HEART_MARGIN = 70
   export default {
     name: 'Canvas',

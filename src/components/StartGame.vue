@@ -17,7 +17,7 @@
       :style="text.style"
       @click="onClick"
     >
-      Tap To Start!
+      點擊開始
     </text>
   </g>
 </template>

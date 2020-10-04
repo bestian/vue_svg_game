@@ -1,6 +1,6 @@
 <template>
   <g filter="url('#shadow')">
-    <text :style="styleObj" x="300" y="80">{{ score }}</text>
+    <text :style="styleObj" x="200" y="80">{{ score }}</text>
   </g>
 </template>
 

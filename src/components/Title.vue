@@ -12,12 +12,12 @@
     </defs>
     <text x="0" y="0" :style="styleObj">
       <textPath xlink:href="#AliensPath">
-        Aliens,
+        射擊
       </textPath>
     </text>
     <text x="0" y="0" :style="styleObj">
       <textPath xlink:href="#GoHomePath">
-        Go Home!
+        太空飛碟
       </textPath>
     </text>
   </g>
