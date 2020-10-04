@@ -11,4 +11,4 @@ export const UFO_START_POSITIONS = [
   150,
   300
 ]
-export const UFO_ANIMATION_TIME = 4000
+export const UFO_ANIMATION_TIME = 8000
