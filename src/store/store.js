@@ -19,6 +19,7 @@ const state = {
   canonAngle: 30,
   started: false,
   win: false,
+  lev: 10,
   kills: 0,
   lives: 5,
   flyingObjects: [],
@@ -42,6 +43,7 @@ const mutations = {
   'WIN_GAME'(state) {
     state.win = true
     state.started = false
+    state.lev += 5
   },
   'STOP_GAME'(state) {
     state.win = false
@@ -147,7 +149,7 @@ const actions = {
     if (ufoCountBefore > ufoCountAfter) {
       commit('DEC_LIVE')
     }
-    if (state.kills >= 20) {
+    if (state.kills >= state.lev) {
       commit('WIN_GAME')
     }
     if (state.lives === 0) {
