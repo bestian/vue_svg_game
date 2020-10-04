@@ -26,7 +26,12 @@
       :x="heart.x"
       :y="heart.y"/>
 
-    <g v-if="!gameStarted">
+    <g v-if="!gameStarted && gameWin">
+      <WinGame @start-game="startGame"/>
+      <Title/>
+    </g>
+
+    <g v-if="!gameStarted && !gameWin">
       <StartGame @start-game="startGame"/>
       <Title/>
     </g>
@@ -52,6 +57,7 @@
   import FlyingObject from './FlyingObject'
   import Title from './Title'
   import StartGame from './StartGame'
+  import WinGame from './WinGame'
   import Heart from './Heart'
   import {getCanvasPosition} from '../utils/formula'
   import {GAME_HEIGHT} from '../utils/constants'
@@ -73,6 +79,7 @@
       FlyingObject,
       Title,
       StartGame,
+      WinGame,
       Heart
     },
     data() {
@@ -93,6 +100,9 @@
       },
       gameStarted() {
         return this.$store.state.started
+      },
+      gameWin() {
+        return this.$store.state.win
       },
       flyingObjects() {
         return this.$store.state.flyingObjects

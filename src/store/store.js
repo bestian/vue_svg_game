@@ -18,6 +18,7 @@ Vue.use(Vuex)
 const state = {
   canonAngle: 30,
   started: false,
+  win: false,
   kills: 0,
   lives: 5,
   flyingObjects: [],
@@ -36,8 +37,14 @@ const mutations = {
   },
   'START_GAME'(state) {
     state.started = true
+    state.win = false
+  },
+  'WIN_GAME'(state) {
+    state.win = true
+    state.started = false
   },
   'STOP_GAME'(state) {
+    state.win = false
     state.started = false
   },
   'RESET_KILLS'(state) {
@@ -139,6 +146,9 @@ const actions = {
     // means ufo crashed
     if (ufoCountBefore > ufoCountAfter) {
       commit('DEC_LIVE')
+    }
+    if (state.kills >= 20) {
+      commit('WIN_GAME')
     }
     if (state.lives === 0) {
       commit('STOP_GAME')
