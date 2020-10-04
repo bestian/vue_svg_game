@@ -19,7 +19,7 @@ const state = {
   canonAngle: 30,
   started: false,
   win: false,
-  lev: 10,
+  lev: 5,
   kills: 0,
   lives: 5,
   flyingObjects: [],
@@ -48,6 +48,7 @@ const mutations = {
   'STOP_GAME'(state) {
     state.win = false
     state.started = false
+    state.lev = 5
   },
   'RESET_KILLS'(state) {
     state.kills = 0

@@ -17,7 +17,7 @@
       :style="text.style"
       @click="onClick"
     >
-      勝利！點擊重玩
+      勝利！點擊升級
     </text>
   </g>
 </template>
