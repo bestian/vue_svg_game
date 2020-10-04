@@ -211,7 +211,7 @@ const actions = {
     if (!state.started) {
       return
     }
-    if (state.cannonBalls.length === 2) {
+    if (state.cannonBalls.length === 4) {
       return
     }
 
