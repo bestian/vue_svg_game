@@ -16,12 +16,10 @@
 
 <script>
   import {pathFromBezierCurve} from '../utils/formula'
-  import {UFO_ANIMATION_TIME} from '../utils/constants'
 
   const baseWith = 40
   const halfBase = baseWith / 2
   const height = 25
-  const time = UFO_ANIMATION_TIME / 1000
 
   export default {
     name: 'FlyingObject',
@@ -48,9 +46,6 @@
         styleTop: {
           fill: '#b6b6b6',
           stroke: '#7d7d7d'
-        },
-        styleAnimation: {
-          animation: `ufoMove ${time}s linear`
         }
       }
     },
@@ -77,6 +72,11 @@
       },
       path() {
         return pathFromBezierCurve(this.cubicBezierCurve)
+      },
+      styleAnimation () {
+        return {
+          animation: 'ufoMove ' + this.$store.state.ufo_animation_time / 1000 + 's linear'
+        }
       }
     }
   }

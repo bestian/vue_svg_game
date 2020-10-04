@@ -22,6 +22,7 @@ const state = {
   lev: 5,
   kills: 0,
   lives: 5,
+  ufo_animation_time: 8000,
   flyingObjects: [],
   lastObjectCreatedAt: 0,
   cannonBalls: []
@@ -44,11 +45,13 @@ const mutations = {
     state.win = true
     state.started = false
     state.lev += 5
+    state.ufo_animation_time *= 0.9
   },
   'STOP_GAME'(state) {
     state.win = false
     state.started = false
     state.lev = 5
+    state.ufo_animation_time = 8000
   },
   'RESET_KILLS'(state) {
     state.kills = 0
@@ -74,7 +77,7 @@ const mutations = {
   },
   'REMOVE_CRASHED_UFOS'(state, now) {
     state.flyingObjects = state.flyingObjects.filter(ufo => {
-      return (now - ufo.createdAt) < UFO_ANIMATION_TIME
+      return (now - ufo.createdAt) < state.ufo_animation_time
     })
   },
   'DESTROY_UFOS'(state, destroyedIds) {
