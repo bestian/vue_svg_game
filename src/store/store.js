@@ -6,7 +6,6 @@ import {
   UFO_MAX_COUNT,
   UFO_START_POSITIONS,
   UFO_Y_AXIS,
-  UFO_ANIMATION_TIME,
   GAME_HEIGHT
 } from '../utils/constants'
 import FlyingObject from '../classes/FlyingObject'
@@ -181,7 +180,7 @@ const actions = {
     const destroyedBallIds = []
     state.flyingObjects.forEach(ufo => {
       const currTime = moment().valueOf() - ufo.createdAt
-      const calcY = ufo.y + (currTime / UFO_ANIMATION_TIME) * GAME_HEIGHT
+      const calcY = ufo.y + (currTime / state.ufo_animation_time) * GAME_HEIGHT
       const rectUfo = {
         x1: ufo.x - 40,
         y1: calcY - 10,
