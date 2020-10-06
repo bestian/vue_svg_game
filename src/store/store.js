@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import {calculateAngle, checkCollision} from '../utils/formula'
+import { calculateAngle, checkCollision } from '../utils/formula'
 import {
   UFO_CREATE_INTERVAL,
   UFO_MAX_COUNT,
@@ -33,69 +33,69 @@ const state = {
 // mutations must be synchronous and can be recorded by plugins
 // for debugging purposes.
 const mutations = {
-  'CHANGE_CANNON_ANGLE'(state, newAngle) {
+  'CHANGE_CANNON_ANGLE' (state, newAngle) {
     state.canonAngle = newAngle
   },
-  'START_GAME'(state) {
+  'START_GAME' (state) {
     state.started = true
     state.win = false
   },
-  'WIN_GAME'(state) {
+  'WIN_GAME' (state) {
     state.win = true
     state.started = false
     state.lev += 5
     state.ufo_animation_time *= 0.9
   },
-  'STOP_GAME'(state) {
+  'STOP_GAME' (state) {
     state.win = false
     state.started = false
     state.lev = 5
     state.ufo_animation_time = 8000
   },
-  'RESET_KILLS'(state) {
+  'RESET_KILLS' (state) {
     state.kills = 0
   },
-  'INC_KILLS'(state, count) {
+  'INC_KILLS' (state, count) {
     state.kills += count
   },
-  'DEC_LIVE'(state) {
+  'DEC_LIVE' (state) {
     state.lives--
   },
-  'RESET_LIVES'(state) {
+  'RESET_LIVES' (state) {
     state.lives = 5
   },
 
-  'RESET_UFOS'(state) {
+  'RESET_UFOS' (state) {
     state.flyingObjects = []
   },
-  'ADD_UFO'(state, ufo) {
+  'ADD_UFO' (state, ufo) {
     state.flyingObjects.push(ufo)
   },
-  'UPDATE_LAST_UFO_CREATED_AT'(state, ms) {
+  'UPDATE_LAST_UFO_CREATED_AT' (state, ms) {
     state.lastObjectCreatedAt = ms
   },
-  'REMOVE_CRASHED_UFOS'(state, now) {
+  'REMOVE_CRASHED_UFOS' (state, now) {
     state.flyingObjects = state.flyingObjects.filter(ufo => {
       return (now - ufo.createdAt) < state.ufo_animation_time
     })
   },
-  'DESTROY_UFOS'(state, destroyedIds) {
+  'DESTROY_UFOS' (state, destroyedIds) {
     state.flyingObjects = state.flyingObjects.filter(ufo => {
       return destroyedIds.indexOf(ufo.id) === -1
     })
   },
 
-  'RESET_CANNON_BALLS'(state) {
+  'RESET_CANNON_BALLS' (state) {
     state.cannonBalls = []
   },
-  'ADD_CANNON_BALL'(state, cannonBall) {
+  'ADD_CANNON_BALL' (state, cannonBall) {
     state.cannonBalls.push(cannonBall)
   },
-  'UPDATE_CANNON_BALLS'(state, newCannonBalls) {
+  'UPDATE_CANNON_BALLS' (state, newCannonBalls) {
     // dirty hack to replace array
     state.cannonBalls.splice(0, state.cannonBalls.length, ...newCannonBalls)
   },
-  'DESTROY_CANNON_BALLS'(state, destroyedIds) {
+  'DESTROY_CANNON_BALLS' (state, destroyedIds) {
     state.cannonBalls = state.cannonBalls.filter(ball => {
       return destroyedIds.indexOf(ball.id) === -1
     })
@@ -105,19 +105,19 @@ const mutations = {
 // actions are functions that cause side effects and can involve
 // asynchronous operations.
 const actions = {
-  startGame: ({commit}) => {
+  startGame: ({ commit }) => {
     commit('RESET_KILLS')
     commit('RESET_LIVES')
     commit('RESET_CANNON_BALLS')
     commit('RESET_UFOS')
     commit('START_GAME')
   },
-  moveObjects: ({commit, dispatch, state}, mousePosition) => {
+  moveObjects: ({ commit, dispatch, state }, mousePosition) => {
     if (!mousePosition) {
       return
     }
-    const {x, y} = mousePosition
-    let newAngle = calculateAngle(0, 0, x, y)
+    const { x, y } = mousePosition
+    const newAngle = calculateAngle(0, 0, x, y)
     commit('CHANGE_CANNON_ANGLE', newAngle)
 
     dispatch('createFlyingObjects')
@@ -125,7 +125,7 @@ const actions = {
     dispatch('checkCollision')
     dispatch('checkGameEnd')
   },
-  createFlyingObjects: ({commit, state}) => { // todo maybe extract to a separate file
+  createFlyingObjects: ({ commit, state }) => { // todo maybe extract to a separate file
     if (!state.started) {
       return
     }
@@ -141,7 +141,7 @@ const actions = {
     commit('ADD_UFO', flyingObject)
     commit('UPDATE_LAST_UFO_CREATED_AT', msCreated)
   },
-  checkGameEnd: ({commit, state}) => {
+  checkGameEnd: ({ commit, state }) => {
     if (!state.started) {
       return
     }
@@ -159,7 +159,7 @@ const actions = {
       commit('STOP_GAME')
     }
   },
-  moveCannonBalls: ({commit, state}) => {
+  moveCannonBalls: ({ commit, state }) => {
     if (!state.started) {
       return
     }
@@ -172,7 +172,7 @@ const actions = {
     newBalls.forEach(ball => ball.move())
     commit('UPDATE_CANNON_BALLS', newBalls)
   },
-  checkCollision: ({commit, state}) => {
+  checkCollision: ({ commit, state }) => {
     if (!state.started) {
       return
     }
@@ -206,7 +206,7 @@ const actions = {
     commit('DESTROY_UFOS', destroyedUfoIds)
     commit('DESTROY_CANNON_BALLS', destroyedBallIds)
   },
-  shoot: ({commit, state}, mousePosition) => {
+  shoot: ({ commit, state }, mousePosition) => {
     if (!state.started) {
       return
     }
@@ -214,7 +214,7 @@ const actions = {
       return
     }
 
-    const {x, y} = mousePosition
+    const { x, y } = mousePosition
     const angle = calculateAngle(0, 0, x, y)
     const cannonBall = new CannonBall(0, 0, angle)
     commit('ADD_CANNON_BALL', cannonBall)

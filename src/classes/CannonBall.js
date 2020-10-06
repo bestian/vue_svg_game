@@ -1,14 +1,14 @@
 import BaseObject from './BaseObject'
-import {radiansToDegrees, degreesToRadian} from '../utils/formula'
+import { radiansToDegrees, degreesToRadian } from '../utils/formula'
 
 export default class CannonBall extends BaseObject {
-  constructor(x, y, angle) {
+  constructor (x, y, angle) {
     super(x, y)
     this.angle = angle
     this.speed = 5 // 50 is 10x slower
   }
 
-  move() {
+  move () {
     const realAngle = (this.angle * -1) + 90
     const stepsX = radiansToDegrees(Math.cos(degreesToRadian(realAngle))) / this.speed
     const stepsY = radiansToDegrees(Math.sin(degreesToRadian(realAngle))) / this.speed

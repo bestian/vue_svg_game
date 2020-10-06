@@ -6,22 +6,22 @@
 </template>
 
 <script>
-  import Canvas from './components/Canvas'
+import Canvas from './components/Canvas'
 
-  export default {
-    name: 'App',
-    components: {
-      Canvas
-    },
-    mounted() {
-      window.onresize = () => {
-        const cnv = document.getElementById('my-game')
-        cnv.style.width = `${window.innerWidth}px`
-        cnv.style.height = `${window.innerHeight}px`
-      }
-      window.onresize()
+export default {
+  name: 'App',
+  components: {
+    Canvas
+  },
+  mounted () {
+    window.onresize = () => {
+      const cnv = document.getElementById('my-game')
+      cnv.style.width = `${window.innerWidth}px`
+      cnv.style.height = `${window.innerHeight}px`
     }
+    window.onresize()
   }
+}
 </script>
 
 <style>

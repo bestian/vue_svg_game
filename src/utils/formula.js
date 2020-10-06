@@ -2,7 +2,7 @@ export const radiansToDegrees = radians => ((radians * 180) / Math.PI)
 export const degreesToRadian = degrees => ((degrees * Math.PI) / 180)
 
 export const pathFromBezierCurve = (cubicBezierCurve) => {
-  const {initialAxis, initialControlPoint, endingControlPoint, endingAxis} = cubicBezierCurve
+  const { initialAxis, initialControlPoint, endingControlPoint, endingAxis } = cubicBezierCurve
   return `
     M${initialAxis.x} ${initialAxis.y}
     c ${initialControlPoint.x} ${initialControlPoint.y}
@@ -32,8 +32,8 @@ export const getCanvasPosition = (event, svgElem) => {
   const point = svgElem.createSVGPoint()
   point.x = event.clientX
   point.y = event.clientY
-  const {x, y} = point.matrixTransform(svgElem.getScreenCTM().inverse())
-  return {x, y}
+  const { x, y } = point.matrixTransform(svgElem.getScreenCTM().inverse())
+  return { x, y }
 }
 
 export const checkCollision = (rectA, rectB) => (

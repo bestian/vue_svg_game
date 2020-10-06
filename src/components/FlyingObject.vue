@@ -15,71 +15,71 @@
 </template>
 
 <script>
-  import {pathFromBezierCurve} from '../utils/formula'
+import { pathFromBezierCurve } from '../utils/formula'
 
-  const baseWith = 40
-  const halfBase = baseWith / 2
-  const height = 25
+const baseWith = 40
+const halfBase = baseWith / 2
+const height = 25
 
-  export default {
-    name: 'FlyingObject',
-    props: {
-      x: {
-        type: Number,
-        required: true,
-        default: 0
-      },
-      y: {
-        type: Number,
-        required: true,
-        default: 0
-      }
+export default {
+  name: 'FlyingObject',
+  props: {
+    x: {
+      type: Number,
+      required: true,
+      default: 0
     },
-    data() {
+    y: {
+      type: Number,
+      required: true,
+      default: 0
+    }
+  },
+  data () {
+    return {
+      rx: 40,
+      ry: 10,
+      styleBase: {
+        fill: '#979797',
+        stroke: '#5c5c5c'
+      },
+      styleTop: {
+        fill: '#b6b6b6',
+        stroke: '#7d7d7d'
+      }
+    }
+  },
+  computed: {
+    cubicBezierCurve () {
       return {
-        rx: 40,
-        ry: 10,
-        styleBase: {
-          fill: '#979797',
-          stroke: '#5c5c5c'
+        initialAxis: {
+          x: this.x - halfBase,
+          y: this.y
         },
-        styleTop: {
-          fill: '#b6b6b6',
-          stroke: '#7d7d7d'
+        initialControlPoint: {
+          x: 10,
+          y: -height
+        },
+        endingControlPoint: {
+          x: 30,
+          y: -height
+        },
+        endingAxis: {
+          x: baseWith,
+          y: 0
         }
       }
     },
-    computed: {
-      cubicBezierCurve() {
-        return {
-          initialAxis: {
-            x: this.x - halfBase,
-            y: this.y
-          },
-          initialControlPoint: {
-            x: 10,
-            y: -height
-          },
-          endingControlPoint: {
-            x: 30,
-            y: -height
-          },
-          endingAxis: {
-            x: baseWith,
-            y: 0
-          }
-        }
-      },
-      path() {
-        return pathFromBezierCurve(this.cubicBezierCurve)
-      },
-      styleAnimation () {
-        return {
-          animation: 'ufoMove ' + this.$store.state.ufo_animation_time / 1000 + 's linear'
-        }
+    path () {
+      return pathFromBezierCurve(this.cubicBezierCurve)
+    },
+    styleAnimation () {
+      return {
+        animation: 'ufoMove ' + this.$store.state.ufo_animation_time / 1000 + 's linear'
       }
     }
   }
+}
 </script>
 
 <style>

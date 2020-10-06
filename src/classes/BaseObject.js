@@ -1,4 +1,4 @@
-import {uuid} from '../utils/util'
+import { uuid } from '../utils/util'
 export default class BaseObject {
   constructor (x, y) {
     this.id = uuid()
