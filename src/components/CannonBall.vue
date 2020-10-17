@@ -27,7 +27,8 @@ export default {
     return {
       r: 16,
       styleObj: {
-        fill: '#777',
+        fill: '#24ffd3',
+        // fill: '#777',
         stroke: '#444',
         strokeWidth: '2px'
       }
