@@ -17,7 +17,7 @@
 <script>
 import { pathFromBezierCurve } from '../utils/formula'
 
-const muzzleWidth = 40
+const muzzleWidth = 10
 const halfMuzzle = muzzleWidth / 2
 const height = 100
 const yBasis = 70
