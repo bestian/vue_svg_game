@@ -18,8 +18,8 @@ export default {
       width: SKY_AND_GROUND_WIDTH,
       height: GAME_HEIGHT,
       styleObj: {
-        fill: '#000000'
-        // fill: '#30abef'
+        // fill: '#000000'
+        fill: '#30abef'
       }
     }
   }

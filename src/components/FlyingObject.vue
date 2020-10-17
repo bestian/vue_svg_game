@@ -7,6 +7,20 @@
       :ry="ry"
       :style="styleBase"
     />
+    <ellipse
+      :cx="x - 20"
+      :cy="y + 10"
+      :rx="rx - 35"
+      :ry="ry + 10"
+      :style="styleBase"
+    />
+    <ellipse
+      :cx="x + 20"
+      :cy="y + 10"
+      :rx="rx - 35"
+      :ry="ry + 10"
+      :style="styleBase"
+    />
     <path
       :style="styleTop"
       :d="path"
@@ -40,11 +54,13 @@ export default {
       rx: 40,
       ry: 10,
       styleBase: {
-        fill: '#979797',
+        fill: '#cf0000',
+        // fill: '#979797',
         stroke: '#5c5c5c'
       },
       styleTop: {
-        fill: '#b6b6b6',
+        fill: '#ff0000',
+        // fill: '#b6b6b6',
         stroke: '#7d7d7d'
       }
     }
