@@ -1,10 +1,20 @@
 <template>
-  <rect :style="styleObj"
-        :x="x"
-        :y="y"
-        :width="width"
-        :height="height"
-  />
+  <g>
+    <rect :style="styleObj"
+          :x="x"
+          :y="y"
+          :width="width"
+          :height="height"
+    />
+    <text
+        :x="0"
+        :y="- height / 2 + 40"
+        :style = "{
+          fill: '#e3e3e3',
+          'font-size': '36px'
+        }"
+    > LEV: {{ lev / 5}} </text>
+  </g>
 </template>
 
 <script>
@@ -21,6 +31,11 @@ export default {
         fill: '#000000'
         // fill: '#30abef'
       }
+    }
+  },
+  computed: {
+    lev () {
+      return this.$store.state.lev
     }
   }
 }

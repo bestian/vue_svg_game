@@ -1,10 +1,11 @@
 <template>
   <ellipse class="cannon-ball"
-    :style="styleObj"
-    :cx="x"
-    :cy="y"
-    :rx="r"
-    :ry="r"
+        :transform="transform"
+        :style="styleObj"
+        :cx="x"
+        :cy="y"
+        :rx="r / 4"
+        :ry="r * 2"
   />
 </template>
 
@@ -21,6 +22,10 @@ export default {
       type: Number,
       required: true,
       default: 0
+    },
+    angle: {
+      type: Number,
+      required: true
     }
   },
   data () {
@@ -32,6 +37,11 @@ export default {
         stroke: '#444',
         strokeWidth: '2px'
       }
+    }
+  },
+  computed: {
+    transform () {
+      return `rotate(${this.angle}, ${this.x}, ${this.y})`
     }
   }
 }

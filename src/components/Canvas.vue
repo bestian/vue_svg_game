@@ -17,7 +17,8 @@
       v-for="cannonBall in cannonBalls"
       :key="cannonBall.id"
       :x="cannonBall.x"
-      :y="cannonBall.y"/>
+      :y="cannonBall.y"
+      :angle="cannonBall.angle"/>
     <CannonPipe :angle="canonAngle"/>
     <CurrentScore :score="currentScore"/>
     <Heart

@@ -8,17 +8,31 @@
       :style="styleBase"
     />
     <ellipse
-      :cx="x - 20"
-      :cy="y + 10"
+      :cx="x - 30"
+      :cy="y + 20"
       :rx="rx - 35"
-      :ry="ry + 10"
+      :ry="ry + 20"
       :style="styleBase"
     />
     <ellipse
-      :cx="x + 20"
-      :cy="y + 10"
+      :cx="x - 10"
+      :cy="y + 20"
       :rx="rx - 35"
-      :ry="ry + 10"
+      :ry="ry + 20"
+      :style="styleBase"
+    />
+    <ellipse
+      :cx="x + 10"
+      :cy="y + 20"
+      :rx="rx - 35"
+      :ry="ry + 20"
+      :style="styleBase"
+    />
+    <ellipse
+      :cx="x + 30"
+      :cy="y + 20"
+      :rx="rx - 35"
+      :ry="ry + 20"
       :style="styleBase"
     />
     <path
