@@ -9,6 +9,7 @@
     <text
         :x="0"
         :y="- height / 2 + 40"
+        :textAnchor="'middle'"
         :style = "{
           fill: '#e3e3e3',
           'font-size': '36px'
