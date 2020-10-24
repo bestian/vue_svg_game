@@ -145,9 +145,9 @@ const actions = {
     if (!state.started) {
       return
     }
-    const ufoCountBefore = state.flyingObjects.filter((ufo) => {ufo.type == 'ufo'}).length
+    const ufoCountBefore = state.flyingObjects.filter((ufo) => ufo.type === 'ufo').length
     commit('REMOVE_CRASHED_UFOS', moment().valueOf())
-    const ufoCountAfter = state.flyingObjects.filter((ufo) => {ufo.type == 'ufo'}).length
+    const ufoCountAfter = state.flyingObjects.filter((ufo) => ufo.type === 'ufo').length
     // means ufo crashed
     if (ufoCountBefore > ufoCountAfter) {
       commit('DEC_LIVE')

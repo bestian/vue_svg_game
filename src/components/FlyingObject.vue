@@ -1,11 +1,11 @@
 <template>
   <g class="move" :style="styleAnimation">
-    <recp v-show="type == 'gift'"
-      :cx="x"
-      :cy="y"
-      :width="rx"
-      :height="ry * 2"
-      :style="styleBase"
+    <rect v-show="type == 'gift'"
+      :x="x"
+      :y="y"
+      :width="rx * 2"
+      :height="ry * 4"
+      :style="styleGift"
     />
     <ellipse v-show="type == 'ufo'"
       :cx="x"
@@ -79,6 +79,11 @@ export default {
     return {
       rx: 40,
       ry: 10,
+      styleGift: {
+        fill: '#ffff47',
+        // fill: '#979797',
+        stroke: '#5c5c5c'
+      },
       styleBase: {
         fill: '#cf0000',
         // fill: '#979797',
