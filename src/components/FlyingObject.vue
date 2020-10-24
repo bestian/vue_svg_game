@@ -4,7 +4,7 @@
       :x="x"
       :y="y"
       :width="rx * 2"
-      :height="ry * 4"
+      :height="ry * 8"
       :style="styleGift"
     />
     <ellipse v-show="type == 'ufo'"
