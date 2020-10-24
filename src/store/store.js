@@ -45,7 +45,7 @@ const mutations = {
     state.win = true
     state.started = false
     state.lev += 5
-    state.ufo_animation_time *= 0.9
+    state.ufo_animation_time *= 0.96
   },
   'STOP_GAME' (state) {
     state.win = false
