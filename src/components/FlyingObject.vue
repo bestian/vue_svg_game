@@ -1,41 +1,48 @@
 <template>
   <g class="move" :style="styleAnimation">
-    <ellipse
+    <ellipse v-show="type == 'gift'"
+      :cx="x"
+      :cy="y"
+      :rx="rx"
+      :ry="ry * 2"
+      :style="styleBase"
+    />
+    <ellipse v-show="type == 'ufo'"
       :cx="x"
       :cy="y"
       :rx="rx"
       :ry="ry"
       :style="styleBase"
     />
-    <ellipse
+    <ellipse v-show="type == 'ufo'"
       :cx="x - 30"
       :cy="y + 20"
       :rx="rx - 35"
       :ry="ry + 20"
       :style="styleBase"
     />
-    <ellipse
+    <ellipse v-show="type == 'ufo'"
       :cx="x - 10"
       :cy="y + 20"
       :rx="rx - 35"
       :ry="ry + 20"
       :style="styleBase"
     />
-    <ellipse
+    <ellipse v-show="type == 'ufo'"
       :cx="x + 10"
       :cy="y + 20"
       :rx="rx - 35"
       :ry="ry + 20"
       :style="styleBase"
     />
-    <ellipse
+    <ellipse v-show="type == 'ufo'"
       :cx="x + 30"
       :cy="y + 20"
       :rx="rx - 35"
       :ry="ry + 20"
       :style="styleBase"
     />
-    <path
+    <path v-show="type == 'ufo'"
       :style="styleTop"
       :d="path"
     />
@@ -61,6 +68,11 @@ export default {
       type: Number,
       required: true,
       default: 0
+    },
+    type: {
+      type: String,
+      required: true,
+      default: 'ufo'
     }
   },
   data () {

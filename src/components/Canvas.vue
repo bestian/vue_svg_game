@@ -41,6 +41,7 @@
       <FlyingObject
         v-for="ufo in flyingObjects"
         :key="ufo.id"
+        :type="ufo.type"
         :x="ufo.x"
         :y="ufo.y"/>
     </g>

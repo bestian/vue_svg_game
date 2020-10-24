@@ -64,7 +64,6 @@ const mutations = {
   'RESET_LIVES' (state) {
     state.lives = 5
   },
-
   'RESET_UFOS' (state) {
     state.flyingObjects = []
   },
@@ -137,7 +136,8 @@ const actions = {
     const predefinedPosition = Math.floor(Math.random() * UFO_MAX_COUNT)
     const xPosition = UFO_START_POSITIONS[predefinedPosition]
     const msCreated = moment().valueOf()
-    const flyingObject = new FlyingObject(xPosition, UFO_Y_AXIS, msCreated)
+    const type = ['ufo', 'ufo', 'ufo', 'ufo', 'ufo', 'ufo', 'ufo', 'gift'][Math.floor(Math.random() * 8)]
+    const flyingObject = new FlyingObject(xPosition, UFO_Y_AXIS, msCreated, type)
     commit('ADD_UFO', flyingObject)
     commit('UPDATE_LAST_UFO_CREATED_AT', msCreated)
   },
