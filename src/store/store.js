@@ -19,6 +19,7 @@ const state = {
   started: false,
   win: false,
   lev: 5,
+  gold: 0,
   kills: 0,
   lives: 5,
   ufo_animation_time: 8000,
@@ -198,6 +199,9 @@ const actions = {
         if (checkCollision(rectUfo, rectBall)) {
           destroyedUfoIds.push(ufo.id)
           destroyedBallIds.push(ball.id)
+          if (ufo.type === 'gift') {
+            state.gold += Math.floor(Math.random() * 90) + 10
+          }
         }
       })
     })

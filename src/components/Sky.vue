@@ -7,14 +7,15 @@
           :height="height"
     />
     <text
-        :x="0"
-        :y="- height / 2 + 40"
+        :x="-200"
+        :y="- height / 2 - 250"
         :textAnchor="'middle'"
         :style = "{
           fill: '#e3e3e3',
           'font-size': '36px'
         }"
-    > LEV: {{ lev / 5}} </text>
+    > LEV: {{ lev / 5}}, Gold: {{ gold }}
+    </text>
   </g>
 </template>
 
@@ -37,6 +38,9 @@ export default {
   computed: {
     lev () {
       return this.$store.state.lev
+    },
+    gold () {
+      return this.$store.state.gold
     }
   }
 }
