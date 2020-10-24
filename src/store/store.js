@@ -51,6 +51,7 @@ const mutations = {
     state.win = false
     state.started = false
     state.lev = 5
+    state.lives = 5
     state.ufo_animation_time = 8000
   },
   'RESET_KILLS' (state) {
