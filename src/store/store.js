@@ -37,9 +37,11 @@ const mutations = {
   'CHANGE_CANNON_ANGLE' (state, newAngle) {
     state.canonAngle = newAngle
   },
-  'START_GAME' (state) {
+  'START_GAME' (state, ch) {
+    // console.log(ch)
     state.started = true
     state.win = false
+    state.ufo_animation_time = ch
   },
   'WIN_GAME' (state) {
     state.win = true
@@ -112,12 +114,12 @@ const mutations = {
 // actions are functions that cause side effects and can involve
 // asynchronous operations.
 const actions = {
-  startGame: ({ commit }) => {
+  startGame: ({ commit }, ch) => {
     commit('RESET_KILLS')
     commit('RESET_LIVES')
     commit('RESET_CANNON_BALLS')
     commit('RESET_UFOS')
-    commit('START_GAME')
+    commit('START_GAME', ch)
   },
   moveObjects: ({ commit, dispatch, state }, mousePosition) => {
     if (!mousePosition) {

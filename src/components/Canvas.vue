@@ -125,8 +125,9 @@ export default {
       const svgElem = this.$refs.svg
       this.canvasMousePosition = getCanvasPosition(event, svgElem)
     },
-    startGame () {
-      this.$store.dispatch('startGame')
+    startGame (ch) {
+      // console.log(ch)
+      this.$store.dispatch('startGame', ch)
     },
     onClick () {
       this.$store.dispatch('shoot', this.canvasMousePosition)

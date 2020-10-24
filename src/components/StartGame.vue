@@ -1,62 +1,73 @@
 <template>
   <g filter="url(#shadow)">
-    <rect
-      :x="button.x"
-      :y="button.y"
-      :width="button.width"
-      :height="button.height"
-      :rx="button.r"
-      :ry="button.r"
-      :style="button.style"
-      @click="onClick"
-    />
-    <text
+    <text v-for = "text in texts"
+      :key = "text.y"
       :x="text.x"
       :y="text.y"
       :textAnchor="text.textAnchor"
       :style="text.style"
-      @click="onClick"
+      @click="start($event,text.ch)"
     >
-      點擊開始
+      {{ text.t }}
     </text>
   </g>
 </template>
 
 <script>
-import { GAME_WIDTH } from '../utils/constants'
+// import { GAME_WIDTH } from '../utils/constants'
 export default {
   name: 'StartGame',
   data () {
     return {
-      button: {
-        x: GAME_WIDTH / 2,
-        y: -280,
-        width: GAME_WIDTH,
-        height: 200,
-        r: 10,
-        style: {
-          fill: 'transparent',
-          cursor: 'pointer'
+      texts: [
+        {
+          textAnchor: 'middle', // center
+          x: 0, // center relative to X axis
+          y: -300, // 150 up
+          style: {
+            fontFamily: '"Joti One", cursive',
+            fontSize: 60,
+            fill: '#e3e3e3',
+            cursor: 'pointer'
+          },
+          t: '簡易模式',
+          ch: 8000
+        },
+        {
+          textAnchor: 'middle', // center
+          x: 0, // center relative to X axis
+          y: -200, // 50 up
+          style: {
+            fontFamily: '"Joti One", cursive',
+            fontSize: 60,
+            fill: '#e3e3e3',
+            cursor: 'pointer'
+          },
+          t: '困難模式',
+          ch: 6000
+        },
+        {
+          textAnchor: 'middle', // center
+          x: 0, // center relative to X axis
+          y: -100, // 50 up
+          style: {
+            fontFamily: '"Joti One", cursive',
+            fontSize: 60,
+            fill: '#e3e3e3',
+            cursor: 'pointer'
+          },
+          t: '煉獄模式',
+          ch: 3000
         }
-      },
-      text: {
-        textAnchor: 'middle', // center
-        x: 0, // center relative to X axis
-        y: -150, // 150 up
-        style: {
-          fontFamily: '"Joti One", cursive',
-          fontSize: 60,
-          fill: '#e3e3e3',
-          cursor: 'pointer'
-        }
-      }
+      ]
     }
   },
   methods: {
-    onClick (event) {
+    start (event, ch) {
       // event.preventDefault()
       event.stopPropagation()
-      this.$emit('start-game')
+      // console.log(ch)
+      this.$emit('start-game', ch)
     }
   }
 }

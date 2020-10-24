@@ -56,7 +56,7 @@ export default {
     onClick (event) {
       // event.preventDefault()
       event.stopPropagation()
-      this.$emit('start-game')
+      this.$emit('start-game', this.$store.state.ufo_animation_time)
     }
   }
 }
