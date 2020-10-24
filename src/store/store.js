@@ -146,7 +146,7 @@ const actions = {
     const predefinedPosition = Math.floor(Math.random() * UFO_MAX_COUNT)
     const xPosition = UFO_START_POSITIONS[predefinedPosition]
     const msCreated = moment().valueOf()
-    const type = ['ufo', 'ufo', 'ufo', 'ufo', 'ufo', 'ufo', 'ufo', 'ufo', 'ufo', 'gift'][Math.floor(Math.random() * 10)]
+    const type = ['ufo', 'ufo', 'ufo', 'ufo', 'ufo', 'ufo', 'ufo', 'ufo', 'boss', 'gift'][Math.floor(Math.random() * 10)]
     const flyingObject = new FlyingObject(xPosition, UFO_Y_AXIS, msCreated, type)
     commit('ADD_UFO', flyingObject)
     commit('UPDATE_LAST_UFO_CREATED_AT', msCreated)
@@ -206,13 +206,20 @@ const actions = {
           y2: ball.y + 8
         }
         if (checkCollision(rectUfo, rectBall)) {
-          destroyedUfoIds.push(ufo.id)
+          if (ufo.life === 1) {
+            destroyedUfoIds.push(ufo.id)
+          } else {
+            ufo.life--
+          }
           destroyedBallIds.push(ball.id)
           if (ufo.type === 'gift') {
             state.gold += Math.floor(Math.random() * 90) + 10
           }
           if (ufo.type === 'ufo') {
             state.gold += 5
+          }
+          if (ufo.type === 'boss') {
+            state.gold += 20
           }
         }
       })
