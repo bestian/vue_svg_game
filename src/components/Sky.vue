@@ -29,7 +29,7 @@
         }"
     >
       <textPath xlink:href="#levPath">
-        LEV: {{ lev / 5}}, Gold: {{ gold }}
+        {{ lev / 5}}級{{ gold }}金, 最高分:{{ history || '無'}}
       </textPath>
     </text>
   </g>
@@ -84,6 +84,9 @@ export default {
     },
     gold () {
       return this.$store.state.gold
+    },
+    history () {
+      return this.$store.state.history
     },
     gameStarted () {
       return this.$store.state.started
