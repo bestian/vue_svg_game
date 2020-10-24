@@ -210,7 +210,7 @@ const actions = {
             state.gold += Math.floor(Math.random() * 90) + 10
           }
           if (ufo.type === 'ufo') {
-            state.gold += 1
+            state.gold += 5
           }
         }
       })

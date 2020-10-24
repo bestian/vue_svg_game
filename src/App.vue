@@ -1,16 +1,27 @@
 <template>
   <div id="app">
     <!--<img src="./assets/logo.png">-->
+    <div class="fix">
+      <aplayer autoplay mini :repeat="'repeat-one'"
+      :music="{
+        title: 'Background',
+        artist: 'Game',
+        src: 'https://bestian.github.io/vue_svg_game/happy.mp3'
+      }"/>
+    </div>
     <Canvas></Canvas>
   </div>
 </template>
 
 <script>
+
+import Aplayer from 'vue-aplayer'
 import Canvas from './components/Canvas'
 
 export default {
   name: 'App',
   components: {
+    Aplayer,
     Canvas
   },
   mounted () {
@@ -44,5 +55,11 @@ export default {
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
     color: #2c3e50;
+  }
+
+  .fix, .aplayer {
+    position: fixed;
+    top: 0;
+    left: 0;
   }
 </style>
