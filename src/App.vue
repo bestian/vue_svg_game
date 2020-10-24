@@ -9,6 +9,7 @@
         src: 'https://bestian.github.io/vue_svg_game/happy.mp3'
       }"/>
     </div>
+    <iframe src="https://www.facebook.com/plugins/share_button.php?href=https%3A%2F%2Fbestian.github.io%2Fvue_svg_game%2F&layout=button_count&size=small&appId=485195848253155&width=71&height=20" width="71" height="20" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
     <Canvas></Canvas>
   </div>
 </template>
@@ -61,5 +62,11 @@ export default {
     position: fixed;
     top: 0;
     left: 0;
+  }
+
+  iframe {
+    position: fixed;
+    top: 0;
+    right: 0;
   }
 </style>
