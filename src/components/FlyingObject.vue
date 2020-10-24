@@ -1,10 +1,10 @@
 <template>
   <g class="move" :style="styleAnimation">
-    <ellipse v-show="type == 'gift'"
+    <recp v-show="type == 'gift'"
       :cx="x"
       :cy="y"
-      :rx="rx"
-      :ry="ry * 2"
+      :width="rx"
+      :height="ry * 2"
       :style="styleBase"
     />
     <ellipse v-show="type == 'ufo'"
