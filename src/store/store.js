@@ -22,7 +22,7 @@ const state = {
   gold: 0,
   kills: 0,
   lives: 5,
-  history: null,
+  history: localStorage.history || null,
   ufo_animation_time: 8000,
   flyingObjects: [],
   lastObjectCreatedAt: 0,
@@ -53,6 +53,7 @@ const mutations = {
   'STOP_GAME' (state) {
     if (Math.max(state.kills, (state.lev - 5)) > state.history) {
       state.history = Math.max(state.kills, (state.lev - 5))
+      localStorage.history = state.history
     }
     state.win = false
     state.started = false
