@@ -3,7 +3,10 @@
 import Vue from 'vue'
 import App from './App'
 import store from './store/store'
-import './registerServiceWorker'
+
+import wb from './registerServiceWorker'
+
+Vue.prototype.$workbox = wb
 
 Vue.config.productionTip = false
 

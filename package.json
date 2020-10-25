@@ -17,7 +17,6 @@
     "core-js": "^3.6.5",
     "mini-css-extract-plugin": "^0.11.3",
     "moment": "^2.21.0",
-    "register-service-worker": "^1.7.1",
     "save": "^2.4.0",
     "upath": "^2.0.0",
     "vue": "^2.6.11",
@@ -27,7 +26,6 @@
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",
     "@vue/cli-plugin-eslint": "~4.5.0",
-    "@vue/cli-plugin-pwa": "~4.5.0",
     "@vue/cli-plugin-vuex": "~4.5.0",
     "@vue/cli-service": "~4.5.0",
     "@vue/eslint-config-standard": "^5.1.2",
@@ -80,7 +78,8 @@
     "webpack": "^3.6.0",
     "webpack-bundle-analyzer": "^2.9.0",
     "webpack-dev-server": "^2.9.1",
-    "webpack-merge": "^4.1.0"
+    "webpack-merge": "^4.1.0",
+    "workbox-webpack-plugin": "^5.1.4"
   },
   "browserslist": [
     "> 1%",
