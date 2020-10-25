@@ -10,40 +10,40 @@
     <ellipse v-show="type == 'ufo' || type == 'boss' "
       :cx="x"
       :cy="y"
-      :rx="rx"
-      :ry="ry"
-      :style="styleBase"
+      :rx="rx + life"
+      :ry="ry + life"
+      :style="styleBase[life]"
     />
-    <ellipse v-show="type == 'boss' "
+    <ellipse v-show="life > 2 && (type == 'ufo' || type == 'boss') "
       :cx="x - 30"
       :cy="y + 20"
-      :rx="rx - 35"
-      :ry="ry + 20"
-      :style="styleBase"
+      :rx="rx - 35 + life"
+      :ry="ry + 20 + life"
+      :style="styleBase[life]"
     />
-    <ellipse v-show="type == 'ufo' || type == 'boss' "
+    <ellipse v-show="life > 0 && (type == 'ufo' || type == 'boss') "
       :cx="x - 10"
       :cy="y + 20"
-      :rx="rx - 35"
-      :ry="ry + 20"
-      :style="styleBase"
+      :rx="rx - 35 + life"
+      :ry="ry + 20 + life"
+      :style="styleBase[life]"
     />
-    <ellipse v-show="type == 'ufo' || type == 'boss' "
+    <ellipse v-show="life > 1 && (type == 'ufo' || type == 'boss') "
       :cx="x + 10"
       :cy="y + 20"
-      :rx="rx - 35"
-      :ry="ry + 20"
-      :style="styleBase"
+      :rx="rx - 35 + life"
+      :ry="ry + 20 + life"
+      :style="styleBase[life]"
     />
-    <ellipse v-show="type == 'boss' "
+    <ellipse v-show="life > 3 && (type == 'boss' || type == 'boss') "
       :cx="x + 30"
       :cy="y + 20"
-      :rx="rx - 35"
-      :ry="ry + 20"
-      :style="styleBase"
+      :rx="rx - 35 + life"
+      :ry="ry + 20 + life"
+      :style="styleBase[life]"
     />
     <path v-show="type == 'ufo' || type == 'boss' "
-      :style="styleTop"
+      :style="styleTop[life]"
       :d="path"
     />
   </g>
@@ -73,6 +73,11 @@ export default {
       type: String,
       required: true,
       default: 'ufo'
+    },
+    life: {
+      type: Number,
+      required: true,
+      default: 1
     }
   },
   data () {
@@ -84,16 +89,50 @@ export default {
         // fill: '#979797',
         stroke: '#5c5c5c'
       },
-      styleBase: {
-        fill: '#cf0000',
-        // fill: '#979797',
-        stroke: '#5c5c5c'
-      },
-      styleTop: {
-        fill: '#ff0000',
-        // fill: '#b6b6b6',
-        stroke: '#7d7d7d'
-      }
+      styleBase: [
+        {
+          fill: '#cf0000',
+          stroke: '#5c5c5c'
+        },
+        {
+          fill: '#cf9999',
+          stroke: '#5c5c5c'
+        },
+        {
+          fill: '#cf6666',
+          stroke: '#5c5c5c'
+        },
+        {
+          fill: '#cf3333',
+          stroke: '#5c5c5c'
+        },
+        {
+          fill: '#cf0000',
+          stroke: '#5c5c5c'
+        }
+      ],
+      styleTop: [
+        {
+          fill: '#cf0000',
+          stroke: '#5c5c5c'
+        },
+        {
+          fill: '#cf9999',
+          stroke: '#5c5c5c'
+        },
+        {
+          fill: '#cf6666',
+          stroke: '#5c5c5c'
+        },
+        {
+          fill: '#cf3333',
+          stroke: '#5c5c5c'
+        },
+        {
+          fill: '#cf0000',
+          stroke: '#5c5c5c'
+        }
+      ]
     }
   },
   computed: {

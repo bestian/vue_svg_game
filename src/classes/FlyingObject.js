@@ -7,7 +7,11 @@ export default class FlyingObject extends BaseObject {
     this.type = type
     if (type === 'boss') {
       this.life = 4
-    } else {
+    }
+    if (type === 'ufo') {
+      this.life = Math.floor(Math.random() * 2) + 1
+    }
+    if (type === 'gift') {
       this.life = 1
     }
   }

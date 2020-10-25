@@ -42,6 +42,7 @@
         v-for="ufo in flyingObjects"
         :key="ufo.id"
         :type="ufo.type"
+        :life="ufo.life"
         :x="ufo.x"
         :y="ufo.y"/>
     </g>

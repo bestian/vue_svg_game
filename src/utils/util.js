@@ -1,3 +1,5 @@
 export const uuid = () => {
-  return Math.random().toString(16).slice(5)
+  const id = Math.random().toString(16).slice(6)
+  console.log(id)
+  return id
 }
