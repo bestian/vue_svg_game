@@ -23,6 +23,19 @@ export default {
         {
           textAnchor: 'middle', // center
           x: 0, // center relative to X axis
+          y: -400, // 150 up
+          style: {
+            fontFamily: '"Joti One", cursive',
+            fontSize: 60,
+            fill: '#e3e3e3',
+            cursor: 'pointer'
+          },
+          t: '練習模式',
+          ch: 16000
+        },
+        {
+          textAnchor: 'middle', // center
+          x: 0, // center relative to X axis
           y: -300, // 150 up
           style: {
             fontFamily: '"Joti One", cursive',

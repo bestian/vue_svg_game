@@ -4,7 +4,7 @@ module.exports = {
   runtimeCompiler: true,
   pwa: {
     workboxOptions: {
-      exclude: ['*.gitkeep', '*.css'],
+      exclude: ['*.gitkeep', '*.css']
     }
   },
   publicPath: process.env.NODE_ENV === 'production'
