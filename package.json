@@ -17,6 +17,7 @@
     "upath": "^2.0.0",
     "vue": "^2.6.11",
     "vue-aplayer": "^1.6.1",
+    "vue-router": "^3.4.8",
     "vuex": "^3.4.0"
   },
   "devDependencies": {

@@ -139,6 +139,12 @@ export default {
     setInterval(() => {
       vm.$store.dispatch('moveObjects', vm.canvasMousePosition)
     }, 10)
+    window.onresize = () => {
+      const cnv = document.getElementById('my-game')
+      cnv.style.width = `${window.innerWidth}px`
+      cnv.style.height = `${window.innerHeight}px`
+    }
+    window.onresize()
   }
 }
 </script>

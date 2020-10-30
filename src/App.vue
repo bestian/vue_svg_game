@@ -9,29 +9,23 @@
         src: 'https://bestian.github.io/vue_svg_game/happy.mp3'
       }"/>
     </div>
+    <nav class="fix top middle">
+      <router-link to="/">玩遊戲</router-link>
+      <router-link to="/about">看說明</router-link>
+    </nav>
     <iframe src="https://www.facebook.com/plugins/share_button.php?href=https%3A%2F%2Fbestian.github.io%2Fvue_svg_game%2F&layout=button_count&size=small&appId=485195848253155&width=71&height=20" width="71" height="20" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
-    <Canvas></Canvas>
+    <router-view/>
   </div>
 </template>
 
 <script>
 
 import Aplayer from 'vue-aplayer'
-import Canvas from './components/Canvas'
 
 export default {
   name: 'App',
   components: {
-    Aplayer,
-    Canvas
-  },
-  mounted () {
-    window.onresize = () => {
-      const cnv = document.getElementById('my-game')
-      cnv.style.width = `${window.innerWidth}px`
-      cnv.style.height = `${window.innerHeight}px`
-    }
-    window.onresize()
+    Aplayer
   }
 }
 </script>
@@ -56,6 +50,25 @@ export default {
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
     color: #2c3e50;
+  }
+
+  nav.fix.top.middle {
+    position: fixed;
+    top: 0;
+    left: 15vw;
+    color: white;
+    z-index: 99999;
+  }
+
+  nav a {
+    color: white;
+    text-decoration: none !important;
+    margin: 0 .5em;
+    font-size: 18px;
+  }
+
+  nav a.router-link-exact-active {
+    color: transparent;
   }
 
   .fix, .aplayer {
