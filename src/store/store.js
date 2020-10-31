@@ -68,8 +68,9 @@ const mutations = {
   'INC_KILLS' (state, count) {
     state.kills += count
   },
-  'DEC_LIVE' (state) {
-    state.lives--
+  'DEC_LIVE' (state, life) {
+    state.lives -= life
+    if (state.lives < 0) { state.lives = 0 }
   },
   'RESET_LIVES' (state) {
     if (state.gold >= 100) {
@@ -161,17 +162,17 @@ const actions = {
     if (!state.started) {
       return
     }
-    const ufoCountBefore = state.flyingObjects.filter((ufo) => ufo.type === 'ufo').length
+    const ufoLiveCountBefore = state.flyingObjects.filter((ufo) => ufo.type === 'ufo' || ufo.type === 'boss').map((ufo) => ufo.life).reduce((a, b) => a + b)
     commit('REMOVE_CRASHED_UFOS', moment().valueOf())
-    const ufoCountAfter = state.flyingObjects.filter((ufo) => ufo.type === 'ufo').length
+    const ufoLiveCountAfter = state.flyingObjects.filter((ufo) => ufo.type === 'ufo' || ufo.type === 'boss').map((ufo) => ufo.life).reduce((a, b) => a + b)
     // means ufo crashed
-    if (ufoCountBefore > ufoCountAfter) {
-      commit('DEC_LIVE')
+    if (ufoLiveCountBefore > ufoLiveCountAfter) {
+      commit('DEC_LIVE', ufoLiveCountBefore - ufoLiveCountAfter)
     }
     if (state.kills >= state.lev) {
       commit('WIN_GAME')
     }
-    if (state.lives === 0) {
+    if (state.lives <= 0) {
       commit('STOP_GAME')
     }
   },
