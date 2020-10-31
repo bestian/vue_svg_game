@@ -1,7 +1,7 @@
 <template>
   <div class="about">
     <div>
-      <img src = "../assets/big_ufo.jpg.jpg"/>
+      <img src = "../assets/big_ufo.jpg"/>
       <h1>遊戲說明</h1>
       <p>
         大家好！這是一個射飛碟的小遊戲
