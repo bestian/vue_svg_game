@@ -7,11 +7,11 @@
       :height="ry * 8"
       :style="styleGift"
     />
-    <ellipse v-show="type == 'ufo' || type == 'boss' "
-      :cx="x"
-      :cy="y"
-      :rx="rx + life"
-      :ry="ry + life"
+    <rect v-show="type == 'ufo' || type == 'boss' "
+      :x="x-rx*0.75"
+      :y="y"
+      :width="rx * 1.5"
+      :height="ry * 1"
       :style="styleBase[life]"
     />
     <ellipse v-show="life > 2 && (type == 'ufo' || type == 'boss') "
@@ -42,9 +42,12 @@
       :ry="ry + 20 + life"
       :style="styleBase[life]"
     />
-    <path v-show="type == 'ufo' || type == 'boss' "
+    <rect v-show="type == 'ufo' || type == 'boss' "
       :style="styleTop[life]"
-      :d="path"
+      :x="x"
+      :y="y-2"
+      :width="6"
+      :height="6"
     />
   </g>
 </template>
