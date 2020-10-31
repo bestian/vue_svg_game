@@ -45,9 +45,9 @@
     <rect v-show="type == 'ufo' || type == 'boss' "
       :style="styleTop[life]"
       :x="x"
-      :y="y-2"
-      :width="6"
-      :height="6"
+      :y="y-12"
+      :width="12"
+      :height="12"
     />
   </g>
 </template>
