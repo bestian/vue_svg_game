@@ -162,9 +162,9 @@ const actions = {
     if (!state.started) {
       return
     }
-    const ufoLiveCountBefore = state.flyingObjects.filter((ufo) => ufo.type === 'ufo' || ufo.type === 'boss').map((ufo) => ufo.life).reduce((a,b)=>a+b)
+    const ufoLiveCountBefore = state.flyingObjects.filter((ufo) => ufo.type === 'ufo' || ufo.type === 'boss').map((ufo) => ufo.life).reduce((a, b) => a + b)
     commit('REMOVE_CRASHED_UFOS', moment().valueOf())
-    const ufoLiveCountAfter = state.flyingObjects.filter((ufo) => ufo.type === 'ufo' || ufo.type === 'boss').map((ufo) => ufo.life).reduce((a,b)=>a+b)
+    const ufoLiveCountAfter = state.flyingObjects.filter((ufo) => ufo.type === 'ufo' || ufo.type === 'boss').map((ufo) => ufo.life).reduce((a, b) => a + b)
     // means ufo crashed
     if (ufoLiveCountBefore > ufoLiveCountAfter) {
       commit('DEC_LIVE', ufoLiveCountBefore - ufoLiveCountAfter)
