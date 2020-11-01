@@ -42,13 +42,16 @@
       :ry="ry + 20 + life"
       :style="styleBase[life]"
     />
-    <rect v-show="type == 'ufo' || type == 'boss' "
-      :style="styleTop[life]"
-      :x="x"
-      :y="y-12"
-      :width="12"
-      :height="12"
-    />
+    <g v-if = "type == 'ufo' || type == 'boss' ">
+      <rect v-for = "(s,idx) in shapes"
+        :key = "idx"
+        :style="styleTop[life]"
+        :x="x + s[0]"
+        :y="y + s[1]"
+        :width="12"
+        :height="12"
+      />
+    </g>
   </g>
 </template>
 
@@ -85,6 +88,11 @@ export default {
   },
   data () {
     return {
+      shapes: [
+        [-36, -36], [-24, -36], [-12, -36], [0, -36], [12, -36], [24, -36],
+        [-36, -24], [-12, -24], [0, -24], [24, -24],
+        [-36, -12], [-24, -12], [-12, -12], [0, -12], [12, -12], [24, -12]
+      ],
       rx: 40,
       ry: 10,
       styleGift: {
