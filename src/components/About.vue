@@ -27,6 +27,9 @@
       <p>
         雖然他叫煉獄模式但其實我覺得很簡單好玩喔!
       </p>
+      <p>
+        <router-link to="/" class="big">玩遊戲</router-link>
+      </p>
     </div>
   </div>
 </template>
@@ -60,6 +63,15 @@ img {
   left: 0;
   width: 100vw;
   z-index: -2;
+}
+
+.big {
+  font-size: 3em;
+  color: white;
+  text-decoration: none;
+  border: 3px solid white;
+  padding: .2em .5em;
+  border-radius: 15px;
 }
 
 </style>
