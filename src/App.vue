@@ -13,7 +13,7 @@
       <router-link to="/">玩遊戲</router-link>
       <router-link to="/about">看說明</router-link>
     </nav>
-    <iframe src="https://www.facebook.com/plugins/share_button.php?href=https%3A%2F%2Fbestian.github.io%2Fvue_svg_game%2F&layout=button_count&size=small&appId=485195848253155&width=71&height=20" width="71" height="20" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
+    <iframe src="https://www.facebook.com/plugins/share_button.php?href=https%3A%2F%2Fbestian.github.io%2Fvue_svg_game%2F&layout=button_count&size=small&appId=485195848253155&width=71&height=20" title="facebook" width="71" height="20" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
     <router-view/>
   </div>
 </template>
@@ -26,6 +26,13 @@ export default {
   name: 'App',
   components: {
     Aplayer
+  },
+  mounted () {
+    var elements = document.getElementsByClassName('aplayer-icon')
+    for (var index = 0; index < elements.length; index++) {
+      elements[index].setAttribute('name', 'Play')
+      elements[index].setAttribute('aria-label', 'Play')
+    }
   }
 }
 </script>
