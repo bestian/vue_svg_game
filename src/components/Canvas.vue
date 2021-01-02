@@ -1,7 +1,6 @@
 <template>
   <svg ref="svg"
        id="my-game"
-       preserveAspectRatio="xMaxYMax none"
        :viewBox="viewBox"
        @mousemove="onMouseMove"
        @click="onClick">
