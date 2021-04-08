@@ -8,7 +8,7 @@
       :style="text.style"
       @click="start($event,text.ch)"
     >
-      {{ text.t }}
+      {{ text.t[lang] }}
     </text>
   </g>
 </template>
@@ -17,6 +17,7 @@
 // import { GAME_WIDTH } from '../utils/constants'
 export default {
   name: 'StartGame',
+  props: ['lang'],
   data () {
     return {
       texts: [
@@ -30,7 +31,7 @@ export default {
             fill: '#e3e3e3',
             cursor: 'pointer'
           },
-          t: '練習模式',
+          t: { 'zh-TW': '練習模式', 'en-US': 'Trail' },
           ch: 16000
         },
         {
@@ -43,7 +44,7 @@ export default {
             fill: '#e3e3e3',
             cursor: 'pointer'
           },
-          t: '簡易模式',
+          t: { 'zh-TW': '簡易模式', 'en-US': 'Easy' },
           ch: 8000
         },
         {
@@ -56,7 +57,7 @@ export default {
             fill: '#e3e3e3',
             cursor: 'pointer'
           },
-          t: '困難模式',
+          t: { 'zh-TW': '困難模式', 'en-US': 'Difficult' },
           ch: 6000
         },
         {
@@ -69,7 +70,7 @@ export default {
             fill: '#e3e3e3',
             cursor: 'pointer'
           },
-          t: '煉獄模式',
+          t: { 'zh-TW': '煉獄模式', 'en-US': 'Inferno' },
           ch: 4000
         }
       ]

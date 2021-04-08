@@ -12,12 +12,12 @@
     </defs>
     <text x="0" y="0" :style="styleObj">
       <textPath xlink:href="#AliensPath">
-        射擊
+        {{ {'zh-TW': '射擊', 'en-US': 'Shoot'}[lang] }}
       </textPath>
     </text>
     <text x="0" y="0" :style="styleObj">
       <textPath xlink:href="#GoHomePath">
-        太空飛碟
+        {{ {'zh-TW': '太空飛碟', 'en-US': 'AlienUFO'}[lang] }}
       </textPath>
     </text>
   </g>
@@ -66,6 +66,7 @@ const goHomeLineCurve = {
 
 export default {
   name: 'Title',
+  props: ['lang'],
   data () {
     return {
       styleObj: {

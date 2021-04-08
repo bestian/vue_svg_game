@@ -1,6 +1,37 @@
 <template>
   <div class="about">
-    <div>
+    <div class="zh-TW" v-if="lang == 'zh-TW'">
+      <img src = "../assets/big_ufo.jpg"/>
+      <h1>遊戲說明</h1>
+      <p>
+        大家好！這是一個射飛碟的小遊戲
+      </p>
+      <p>
+        射中一個飛碟得5金
+      </p>
+      <p>
+        100金換一顆心
+      </p>
+      <p>
+        飛碟落地就扣一顆心
+      </p>
+      <p>
+        扣完心就結束了
+      </p>
+      <p>
+        遊戲有四種難度，你可以任意選擇喔
+      </p>
+      <p>
+        建議選擇煉獄模式喔!
+      </p>
+      <p>
+        雖然他叫煉獄模式但其實我覺得很簡單好玩喔!
+      </p>
+      <p>
+        <router-link to="/" class="big">玩遊戲</router-link>
+      </p>
+    </div>
+    <div class="zh-TW" v-else>
       <img src = "../assets/big_ufo.jpg"/>
       <h1>遊戲說明</h1>
       <p>

@@ -1,52 +1,53 @@
 <template>
-  <svg ref="svg"
-       id="my-game"
-       :viewBox="viewBox"
-       @mousemove="onMouseMove"
-       @click="onClick">
-    <defs>
-      <filter id="shadow">
-        <feDropShadow dx="1" dy="1" stdDeviation="2"/>
-      </filter>
-    </defs>
-    <Sky/>
-    <Ground/>
-    <CannonBase/>
-    <CannonBall
-      v-for="cannonBall in cannonBalls"
-      :key="cannonBall.id"
-      :x="cannonBall.x"
-      :y="cannonBall.y"
-      :angle="cannonBall.angle"/>
-    <CannonPipe :angle="canonAngle"/>
-    <CurrentScore :score="currentScore"/>
-    <Heart
-      v-for="heart in hearts"
-      :key="heart.id"
-      :x="heart.x"
-      :y="heart.y"/>
+  <div>
+    <svg ref="svg"
+         id="my-game"
+         :viewBox="viewBox"
+         @mousemove="onMouseMove"
+         @click="onClick">
+      <defs>
+        <filter id="shadow">
+          <feDropShadow dx="1" dy="1" stdDeviation="2"/>
+        </filter>
+      </defs>
+      <Sky/>
+      <Ground/>
+      <CannonBase/>
+      <CannonBall
+        v-for="cannonBall in cannonBalls"
+        :key="cannonBall.id"
+        :x="cannonBall.x"
+        :y="cannonBall.y"
+        :angle="cannonBall.angle"/>
+      <CannonPipe :angle="canonAngle"/>
+      <CurrentScore :score="currentScore"/>
+      <Heart
+        v-for="heart in hearts"
+        :key="heart.id"
+        :x="heart.x"
+        :y="heart.y"/>
 
-    <g v-if="!gameStarted && gameWin">
-      <WinGame @start-game="startGame"/>
-      <Title/>
-    </g>
+      <g v-if="!gameStarted && gameWin">
+        <WinGame @start-game="startGame"/>
+        <Title/>
+      </g>
 
-    <g v-if="!gameStarted && !gameWin">
-      <StartGame @start-game="startGame"/>
-      <Title/>
-    </g>
+      <g v-if="!gameStarted && !gameWin">
+        <StartGame @start-game="startGame" :lang="lang"/>
+        <Title :lang="lang"/>
+      </g>
 
-    <g v-if="gameStarted">
-      <FlyingObject
-        v-for="ufo in flyingObjects"
-        :key="ufo.id"
-        :type="ufo.type"
-        :life="ufo.life"
-        :x="ufo.x"
-        :y="ufo.y"/>
-    </g>
-
-  </svg>
+      <g v-if="gameStarted">
+        <FlyingObject
+          v-for="ufo in flyingObjects"
+          :key="ufo.id"
+          :type="ufo.type"
+          :life="ufo.life"
+          :x="ufo.x"
+          :y="ufo.y"/>
+      </g>
+    </svg>
+  </div>
 </template>
 
 <script>
@@ -84,15 +85,14 @@ export default {
     WinGame,
     Heart
   },
+  props: ['lang'],
   data () {
     return {
       viewBox: viewBox,
       canvasMousePosition: {
         x: 50,
         y: -100
-      },
-      lang: 'zh-TW',
-      langs: ['zh-TW','en-US']    
+      }
     }
   },
   computed: {
@@ -153,5 +153,11 @@ export default {
 <style>
   #my-game {
     border: 1px solid black;
+  }
+
+  select {
+    position: absolute;
+    top: 0;
+    left: 45vw;
   }
 </style>
