@@ -67,8 +67,8 @@ import BaseObject from '../classes/BaseObject'
 
 const viewBox = [window.innerWidth / -2, 100 - GAME_HEIGHT, window.innerWidth, GAME_HEIGHT]
 const HEART_START_Y = 35
-const HEART_START_X = 0
-const HEART_MARGIN = 20
+const HEART_START_X = -70
+const HEART_MARGIN = 30
 export default {
   name: 'Canvas',
   components: {
@@ -90,7 +90,9 @@ export default {
       canvasMousePosition: {
         x: 50,
         y: -100
-      }
+      },
+      lang: 'zh-TW',
+      langs: ['zh-TW','en-US']    
     }
   },
   computed: {

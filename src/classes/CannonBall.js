@@ -5,7 +5,7 @@ export default class CannonBall extends BaseObject {
   constructor (x, y, angle) {
     super(x, y)
     this.angle = angle
-    this.speed = 5 // 50 is 10x slower
+    this.speed = 10 // 50 is 10x slower
   }
 
   move () {

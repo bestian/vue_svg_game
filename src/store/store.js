@@ -240,7 +240,7 @@ const actions = {
     if (!state.started) {
       return
     }
-    if (state.cannonBalls.length === 4) {
+    if (state.cannonBalls.length === 30) {
       return
     }
 

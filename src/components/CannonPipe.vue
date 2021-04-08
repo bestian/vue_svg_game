@@ -57,9 +57,9 @@ export default {
       x2: halfMuzzle,
       y2: -yBasis,
       styleObj: {
-        fill: '#33f',
-        stroke: '#666',
-        strokeWidth: '2px'
+        fill: '#666',
+        stroke: '#FFD700',
+        strokeWidth: '4px'
       },
       path: pathFromBezierCurve(cubicBezierCurve)
     }

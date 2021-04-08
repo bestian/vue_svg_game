@@ -97,7 +97,7 @@ export default {
       const star = {
         x: Math.floor(Math.random() * SKY_AND_GROUND_WIDTH - SKY_AND_GROUND_WIDTH / 2),
         y: -Math.floor(Math.random() * GAME_HEIGHT),
-        size: Math.floor(Math.random() * 2) + 1
+        size: Math.floor(Math.random() * 10) + 1
       }
       this.stars.push(star)
       this.$forceUpdate()

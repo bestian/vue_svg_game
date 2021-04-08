@@ -70,7 +70,7 @@ export default {
             cursor: 'pointer'
           },
           t: '煉獄模式',
-          ch: 3000
+          ch: 4000
         }
       ]
     }
