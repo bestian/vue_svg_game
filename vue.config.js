@@ -1,5 +1,3 @@
-const { GenerateSW } = require('workbox-webpack-plugin')
-
 module.exports = {
   runtimeCompiler: true,
   css: { sourceMap: true },
