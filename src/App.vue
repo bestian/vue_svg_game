@@ -10,15 +10,15 @@
       }"/>
     </div>
     <nav class="fix top middle">
-      <select v-model="lang">
+      <!--  <select v-model="lang">
         <option v-for="l in langs" :value="l" :key="l">{{l}}</option>
-      </select>
+      </select>  -->
       <router-link to="/">{{ {'zh-TW': '玩遊戲', 'en-US': 'Play'}[lang] }}</router-link>
       <router-link to="/about">{{ {'zh-TW': '看說明', 'en-US': 'About'}[lang] }}</router-link>
     </nav>
     <!--<iframe src="https://www.facebook.com/plugins/share_button.php?href=https%3A%2F%2Fbestian.github.io%2Fvue_svg_game%2F&layout=button_count&size=small&appId=485195848253155&width=71&height=20" title="facebook" width="71" height="20" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe> -->
     <router-view :lang="lang"/>
-    <h1>_</h1>
+    <h1></h1>
   </div>
 </template>
 
