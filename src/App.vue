@@ -43,6 +43,63 @@ export default {
       elements[index].setAttribute('name', 'Play')
       elements[index].setAttribute('aria-label', 'Play')
     }
+
+    document.addEventListener('deviceready', onDeviceReady)
+
+    function onDeviceReady () {
+      const state = {}
+      function setState (attr) {
+        Object.assign(state, attr)
+        render(state)
+      }
+
+      setState({
+        error: '',
+        status: 'Loading...',
+        product1: {},
+        product2: {}
+      })
+
+      // We will initialize the in-app purchase plugin here.
+
+      if (!window.store) {
+        console.log('Window.Store not available')
+        return
+      }
+      // We should first register all our products or we cannot use them in the app.
+      window.store.register([{
+        id: 'my_subscription1',
+        type: window.store.PAID_SUBSCRIPTION
+      }, {
+        id: 'my_subscription2',
+        type: window.store.PAID_SUBSCRIPTION
+      }])
+
+      // Setup the receipt validator service.
+      window.store.validator =
+  'https://validator.fovea.cc/v1/validate?appName=tw.bestian.ufo&apiKey=76d9840c-6b7b-4388-b30b-06290b1304a3'
+
+      // Show errors for 10 seconds.
+      window.store.error(function (error) {
+        setState({ error: `ERROR ${error.code}: ${error.message}` })
+        setTimeout(function () {
+          setState({ error: '' })
+        }, 10000)
+      })
+      // Later, we will add our events handlers here
+      // Load informations about products and purchases
+      window.store.refresh()
+      function render () {
+        const body = document.getElementsByTagName('body')[0]
+        body.innerHTML = `
+    <pre> 
+    ${state.error}
+
+    subscription: ${state.status}
+    </pre>
+            `
+      }
+    }
   }
 }
 </script>
